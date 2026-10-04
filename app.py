@@ -10,13 +10,7 @@ DB_PATH = BASE_DIR / "jobtrack.db"
 app = Flask(__name__, static_folder=".", static_url_path="")
 CORS(app)
 
-SEED = [
-    ("1","Siemens","Product Analyst","Munich · Hybrid","€60k–€72k","Interview","2026-09-29","https://siemens.com","Prepare case study"),
-    ("2","Zalando","Junior Product Manager","Berlin · Hybrid","€55k–€68k","Applied","2026-10-01","https://zalando.com","Follow up Oct 8"),
-    ("3","Celonis","Business Analyst","Munich · Hybrid","€58k–€70k","Screening","2026-10-02","https://celonis.com","Send availability"),
-    ("4","SAP","Associate Consultant","Walldorf · Hybrid","€52k–€65k","Saved","2026-10-03","https://sap.com","Tailor CV"),
-    ("5","Delivery Hero","Operations Associate","Berlin · Hybrid","€48k–€58k","Rejected","2026-09-24","https://deliveryhero.com","Review feedback"),
-]
+SEED = []
 
 def get_db():
     db = sqlite3.connect(DB_PATH)
@@ -30,8 +24,6 @@ def init_db():
         location TEXT, salary TEXT, status TEXT NOT NULL, date TEXT,
         url TEXT, nextAction TEXT
     )""")
-    if db.execute("SELECT COUNT(*) FROM applications").fetchone()[0] == 0:
-        db.executemany("INSERT INTO applications VALUES (?,?,?,?,?,?,?,?,?)", SEED)
     db.commit()
     db.close()
 
@@ -83,7 +75,6 @@ def update_application(app_id):
 def reset_demo():
     db = get_db()
     db.execute("DELETE FROM applications")
-    db.executemany("INSERT INTO applications VALUES (?,?,?,?,?,?,?,?,?)", SEED)
     db.commit()
     db.close()
     return jsonify({"ok": True})
