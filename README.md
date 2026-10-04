@@ -10,9 +10,6 @@ Instead of managing a job search across spreadsheets, browser tabs, notes, and e
 
 **Live application:** https://jobtrack-1-kqju.onrender.com
 
-**GitHub repository:** https://github.com/Tirth280507/jobtrack
-
-> **Hosting note:** The current full-stack version is deployed on Render because it runs a Python/Flask backend. GitHub Pages is designed for static sites and cannot run this Flask backend.
 
 ## ✨ What JobTrack Does
 
