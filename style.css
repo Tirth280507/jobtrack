@@ -12,3 +12,36 @@
 .badge.saved{background:#f0f2f5;color:#657080}.badge.applied{background:#eaf0ff;color:#3157d5}.badge.screening{background:#fff4db;color:#9a6500}.badge.interview{background:#eee9ff;color:#6c48c8}.badge.offer{background:#e8f7f0;color:#16745b}.badge.rejected{background:#fdecec;color:#a43d3d}
 .insight-panel{background:linear-gradient(120deg,#fff,#f8faff)}
 @media(max-width:700px){.welcome{display:block}.weekly{text-align:left;padding:18px 0 0}.form-grid{grid-template-columns:1fr}.full{grid-column:auto}}
+
+/* Colorful application board */
+.applications-view{}
+#applicationsView .panel{padding:24px}
+#applicationsView .toolbar{margin-bottom:18px}
+#applicationsView .search{box-shadow:0 3px 12px rgba(23,32,51,.04)}
+.kanban{grid-template-columns:repeat(6,minmax(190px,1fr));gap:14px;padding-bottom:6px}
+.column{background:#f8f9fc;border:1px solid #e7eaf0;border-radius:14px;padding:10px;min-height:330px}
+.column-title{padding:4px 3px 11px;font-weight:800}
+.column-title b{min-width:24px;text-align:center;background:#e6eaf1;color:#5e6878}
+.column-saved{border-top:4px solid #8b95a7}
+.column-applied{border-top:4px solid #4f73df}
+.column-screening{border-top:4px solid #e3a52f}
+.column-interview{border-top:4px solid #8b5cf6}
+.column-offer{border-top:4px solid #18a276}
+.column-rejected{border-top:4px solid #dc6464}
+.kan-card{background:#fff;border:1px solid #e3e7ee;border-radius:13px;padding:13px;margin-bottom:10px;box-shadow:0 5px 14px rgba(23,32,51,.06);transition:transform .16s ease,box-shadow .16s ease}
+.kan-card:hover{transform:translateY(-2px);box-shadow:0 9px 20px rgba(23,32,51,.1)}
+.kan-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:11px}
+.kan-card .company-logo{width:34px;height:34px;border-radius:9px}
+.mini-status{font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;padding:4px 7px;border-radius:99px;background:#f0f2f6;color:#697386}
+.column-applied .mini-status{background:#eaf0ff;color:#3157d5}
+.column-screening .mini-status{background:#fff4db;color:#9a6500}
+.column-interview .mini-status{background:#eee9ff;color:#6c48c8}
+.column-offer .mini-status{background:#e8f7f0;color:#16745b}
+.column-rejected .mini-status{background:#fdecec;color:#a43d3d}
+.kan-card>strong{font-size:13px;display:block}
+.kan-role{font-size:11px!important;color:#4f5d70!important;margin:4px 0!important;font-weight:650}
+.kan-meta{font-size:10px!important;color:#8791a0!important;margin:3px 0!important}
+.kan-next{margin-top:10px;padding:8px;border-radius:8px;background:#f7f8fa;font-size:10px;color:#4e596b}
+.kan-next span{display:block;font-size:8px;letter-spacing:.1em;font-weight:850;color:#3157d5;margin-bottom:2px}
+.kan-card select{margin-top:10px!important;background:#fff;font-size:10px;border-color:#e1e5eb!important}
+.column-empty{height:230px;display:grid;place-items:center;text-align:center;color:#a0a8b5;font-size:10px;padding:20px}
