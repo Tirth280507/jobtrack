@@ -13,9 +13,11 @@ Job searches can become fragmented across spreadsheets, notes, email, and browse
 - Dashboard metrics for active applications, interviews, offers, and response rate.
 - Structured application form.
 - Search and stage filtering.
-- Direct stage changes in the Kanban board.
+- Direct stage changes from the application detail view and optional Kanban board.
 - Flask backend with a REST API.
 - SQLite database for persistent application data.
+- Applications workspace with list and board views.
+- Full application detail panel with salary, applied date, location, status, next action, and job link.
 - Insights and next-action views.
 
 ### Why add a backend?
