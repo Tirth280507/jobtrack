@@ -11,3 +11,4 @@
 .application-card .badge{margin-top:1px}
 @media(max-width:1050px){.workspace{grid-template-columns:1fr}.application-detail{position:relative;top:auto}.application-cards{max-height:none}.detail-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:700px){.applications-hero{display:block}.view-switch{margin-top:14px;width:max-content}.toolbar{flex-direction:column}.application-detail{padding:20px}.detail-grid{grid-template-columns:1fr}.application-card{grid-template-columns:40px 1fr}.card-right{grid-column:2;text-align:left}.card-right time{display:none}}
+.hidden{display:none!important}.detail-status select{width:100%;border:1px solid #dce2eb;border-radius:8px;padding:8px;background:#fff;font:inherit;font-size:11px}.modal-head{display:flex;justify-content:space-between;align-items:flex-start}.modal-head h2{margin:0}
