@@ -1,47 +1,183 @@
 # JobTrack
 
-**JobTrack** is a full-stack job-application manager built with a polished HTML/CSS/JavaScript frontend and a Python/Flask backend.
+> **A focused command center for managing a job search.**
 
-### Why it exists
-Job searches often get scattered across spreadsheets, browser tabs, email, and notes. JobTrack gives the search one focused workspace: pipeline, next actions, and simple progress signals.
+JobTrack is a full-stack web application that helps job seekers keep applications, interview stages, salary information, application dates, job links, and next actions in one place.
 
-### Stack
-- **Frontend:** HTML, CSS, JavaScript
-- **Backend:** Python + Flask REST API
-- **Database:** SQLite
-- **Production server:** Gunicorn
-- **Deployment:** Render
+Instead of managing a job search across spreadsheets, browser tabs, notes, and emails, JobTrack provides one simple workspace.
 
-### Features
-- Dashboard with active applications, interviews, offers, and response rate
-- Six-stage application pipeline
-- Add applications through a structured form
+## 🚀 Live App
+
+**Live application:** https://jobtrack-1-kqju.onrender.com
+
+**GitHub repository:** https://github.com/Tirth280507/jobtrack
+
+> **Hosting note:** The current full-stack version is deployed on Render because it runs a Python/Flask backend. GitHub Pages is designed for static sites and cannot run this Flask backend.
+
+## ✨ What JobTrack Does
+
+### Dashboard
+- Active applications
+- Interviews
+- Offers
+- Response rate
+- Pipeline progress
+- Next actions
+- Recent applications
+
+### Applications Workspace
+- Add a new job application
 - Search and filter applications
-- Change an application's stage directly from the pipeline
-- Next-action / follow-up view
-- Simple insights page
-- Persistent database storage
-- Responsive layout
+- See salary and application date at a glance
+- Select an application to view its full details
+- Open the original job posting
+- Change the application stage
+- See the next action for each opportunity
 
-### API
-- `GET /api/applications` — list applications
-- `POST /api/applications` — create an application
-- `PATCH /api/applications/<id>` — update an application
-- `POST /api/reset` — reset demo data
+### Pipeline
+Applications move through six stages:
 
-### Run locally
+**Saved → Applied → Screening → Interview → Offer / Rejected**
+
+### Insights
+A simple overview of application activity and follow-ups helps show where the search is building momentum.
+
+## 🛠️ Technology
+
+| Part | Technology |
+|---|---|
+| Frontend | HTML, CSS, JavaScript |
+| Backend | Python, Flask |
+| API | REST-style HTTP endpoints |
+| Database | SQLite |
+| Production server | Gunicorn |
+| Version control | GitHub |
+| Deployment | Render |
+
+## 🏗️ How It Works
+
+```text
+                 USER
+                   │
+                   ▼
+        ┌─────────────────────┐
+        │     Frontend        │
+        │ HTML + CSS + JS     │
+        └──────────┬──────────┘
+                   │
+                API requests
+                   │
+                   ▼
+        ┌─────────────────────┐
+        │       Flask         │
+        │   Python backend    │
+        └──────────┬──────────┘
+                   │
+                   ▼
+        ┌─────────────────────┐
+        │       SQLite        │
+        │      Database       │
+        └─────────────────────┘
+```
+
+When a user adds an application, JavaScript sends the information to the Flask API, Flask stores it in SQLite, and the frontend loads the updated data.
+
+## 🔌 API Endpoints
+
+| Method | Endpoint | Purpose |
+|---|---|---|
+| GET | `/api/applications` | Get all applications |
+| POST | `/api/applications` | Create an application |
+| PATCH | `/api/applications/<id>` | Update an application |
+| POST | `/api/reset` | Clear stored applications |
+
+## 💻 Run JobTrack Locally
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/Tirth280507/jobtrack.git
+cd jobtrack
+```
+
+### 2. Create a virtual environment
+
+**Windows**
 ```bash
 python -m venv .venv
-# Windows: .venv\\Scripts\\activate
-# macOS/Linux: source .venv/bin/activate
+.venv\\Scripts\\activate
+```
+
+**macOS / Linux**
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+```
+
+### 3. Install dependencies
+
+```bash
 pip install -r requirements.txt
+```
+
+### 4. Start the application
+
+```bash
 python app.py
 ```
 
-Then open `http://localhost:5000`.
+Open `http://localhost:5000`.
 
-### Deployment
-The repository includes `render.yaml` for Render. Render's Python web service can build with `pip install -r requirements.txt` and run with `gunicorn app:app`.
+## 📁 Project Structure
 
-### Class Notebook
-See `CLASS_NOTEBOOK.md`.
+```text
+jobtrack/
+├── app.py
+├── app.js
+├── index.html
+├── style.css
+├── requirements.txt
+├── Dockerfile
+├── Procfile
+├── render.yaml
+├── .python-version
+├── CLASS_NOTEBOOK.md
+├── README.md
+└── .gitignore
+```
+
+## 📚 What I Learned
+
+This project helped me understand how a real web application is put together.
+
+Key concepts explored:
+
+- Responsive frontend development
+- JavaScript application interactions
+- Python and Flask backend development
+- API endpoints and frontend/backend communication
+- SQLite data storage
+- GitHub version control
+- Cloud deployment
+- Connecting a deployed frontend and backend
+- Designing software around a real user problem
+
+## 🔮 Future Improvements
+
+- User accounts and authentication
+- PostgreSQL for production-scale storage
+- Recruiter/contact information
+- Interview dates and notes
+- Application activity timeline
+- Reminders and notifications
+- Calendar and email integrations
+- CSV export
+- Richer analytics
+
+## 📝 Development Log
+
+See **[CLASS_NOTEBOOK.md](CLASS_NOTEBOOK.md)** for the development process, decisions, and reflections.
+
+## 👤 Project
+
+Built as a learning and portfolio project focused on solving a real-world job-search problem.
