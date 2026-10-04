@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="JobTrack — a focused dashboard for managing a job search.">
+  <title>JobTrack — Job Application Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><div class="brand-mark">J</div><div><strong>JobTrack</strong><span>Career command center</span></div></div>
+      <nav>
+        <button class="nav-item active" data-view="dashboard">▦ <span>Dashboard</span></button>
+        <button class="nav-item" data-view="applications">▤ <span>Applications</span></button>
+        <button class="nav-item" data-view="insights">◔ <span>Insights</span></button>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="mini-card"><span class="dot"></span><div><strong>Search in motion</strong><small>Keep the next step visible.</small></div></div>
+        <button id="resetDemo" class="reset">Reset demo data</button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">YOUR JOB SEARCH</p>
+          <h1 id="pageTitle">Dashboard</h1>
+        </div>
+        <button id="addTop" class="primary">＋ Add application</button>
+      </header>
+
+      <section id="dashboardView" class="view">
+        <div class="welcome">
+          <div><span class="pill">THIS WEEK</span><h2>Make progress, not spreadsheets.</h2><p>Keep applications, follow-ups, and interviews in one calm workspace.</p></div>
+          <div class="weekly"><strong id="weeklyCount">0</strong><span>applications added</span></div>
+        </div>
+
+        <div class="stats">
+          <article><span>Active applications</span><strong id="activeStat">0</strong><small>Everything except rejected</small></article>
+          <article><span>Interviews</span><strong id="interviewStat">0</strong><small>Screening + interview stages</small></article>
+          <article><span>Offers</span><strong id="offerStat">0</strong><small>Offers received</small></article>
+          <article><span>Response rate</span><strong id="responseStat">0%</strong><small>Responses ÷ applications</small></article>
+        </div>
+
+        <div class="grid-two">
+          <section class="panel">
+            <div class="panel-head"><div><p class="eyebrow">PIPELINE</p><h3>Where things stand</h3></div><button class="text-btn" data-view-link="applications">View all →</button></div>
+            <div id="pipeline" class="pipeline"></div>
+          </section>
+          <section class="panel">
+            <div class="panel-head"><div><p class="eyebrow">NEXT ACTIONS</p><h3>Keep momentum</h3></div></div>
+            <div id="nextActions" class="next-actions"></div>
+          </section>
+        </div>
+
+        <section class="panel recent-panel">
+          <div class="panel-head"><div><p class="eyebrow">RECENT</p><h3>Latest applications</h3></div><button class="text-btn" data-view-link="applications">See all →</button></div>
+          <div id="recentList" class="application-list"></div>
+        </section>
+      </section>
+
+      <section id="applicationsView" class="view hidden">
+        <div class="toolbar">
+          <div class="search"><span>⌕</span><input id="searchInput" placeholder="Search company or role…"></div>
+          <select id="statusFilter"><option value="all">All stages</option><option>Saved</option><option>Applied</option><option>Screening</option><option>Interview</option><option>Offer</option><option>Rejected</option></select>
+        </div>
+        <section class="panel"><div class="board-head"><h3>Application pipeline</h3><span id="resultCount"></span></div><div id="kanban" class="kanban"></div></section>
+      </section>
+
+      <section id="insightsView" class="view hidden">
+        <div class="stats">
+          <article><span>Applications / week</span><strong id="insightApps">0</strong><small>Based on saved application dates</small></article>
+          <article><span>Most active stage</span><strong id="insightStage">—</strong><small>Where your pipeline is concentrated</small></article>
+          <article><span>Follow-ups due</span><strong id="insightFollow">0</strong><small>Next actions within 7 days</small></article>
+          <article><span>Pipeline health</span><strong id="insightHealth">—</strong><small>A simple signal, not a score</small></article>
+        </div>
+        <section class="panel insight-panel"><p class="eyebrow">WHAT THE NUMBERS SAY</p><h2 id="insightHeadline">Start by adding a few applications.</h2><p id="insightCopy">Once you have activity in the pipeline, JobTrack will surface simple patterns to help you decide where to focus next.</p></section>
+        <section class="panel"><div class="panel-head"><div><p class="eyebrow">FOLLOW-UP RADAR</p><h3>Upcoming actions</h3></div></div><div id="insightActions" class="next-actions"></div></section>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="modal">
+    <form method="dialog" id="applicationForm" class="modal-card">
+      <div class="modal-head"><div><p class="eyebrow">NEW APPLICATION</p><h2>Add to your pipeline</h2></div><button value="cancel" class="close">×</button></div>
+      <div class="form-grid">
+        <label>Company<input name="company" required placeholder="e.g. Siemens"></label>
+        <label>Role<input name="role" required placeholder="e.g. Product Analyst"></label>
+        <label>Location<input name="location" placeholder="Berlin · Hybrid"></label>
+        <label>Salary<input name="salary" placeholder="€55k–€70k"></label>
+        <label>Status<select name="status"><option>Saved</option><option>Applied</option><option>Screening</option><option>Interview</option><option>Offer</option><option>Rejected</option></select></label>
+        <label>Application date<input type="date" name="date"></label>
+        <label class="full">Job URL<input name="url" type="url" placeholder="https://…"></label>
+        <label class="full">Next action<input name="nextAction" placeholder="Follow up with recruiter"></label>
+      </div>
+      <div class="modal-actions"><button type="button" class="secondary" id="cancelModal">Cancel</button><button class="primary" value="default">Add application</button></div>
+    </form>
+  </dialog>
+  <script src="app.js"></script>
+</body>
+</html>
