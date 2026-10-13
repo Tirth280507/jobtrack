@@ -8,7 +8,7 @@ Instead of managing a job search across spreadsheets, browser tabs, notes, and e
 
 ## 🚀 Live App
 
-**Live application:** https://jobtrack-1-kqju.onrender.com
+**Live application:** (https://jobtrack-amhh.onrender.com)
 
 
 ## ✨ What JobTrack Does
